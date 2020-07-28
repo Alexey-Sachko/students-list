@@ -7,6 +7,7 @@ import {
   Delete,
   Param,
   ParseIntPipe,
+  ValidationPipe,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { IStudent } from './types/student.interface';
@@ -26,14 +27,14 @@ export class StudentsController {
 
   @Post('/')
   async createStudent(
-    @Body() createStudentDto: CreateStudentDto,
+    @Body(ValidationPipe) createStudentDto: CreateStudentDto,
   ): Promise<IStudent> {
     return this._studentsService.createStudent(createStudentDto);
   }
 
   @Put('/')
   async updateStudent(
-    @Body() updateStudentDto: UpdateStudentDto,
+    @Body(ValidationPipe) updateStudentDto: UpdateStudentDto,
   ): Promise<IStudent> {
     return this._studentsService.updateStudent(updateStudentDto);
   }
