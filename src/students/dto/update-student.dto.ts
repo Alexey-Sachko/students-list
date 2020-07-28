@@ -1,11 +1,8 @@
+import { ApiProperty } from '@nestjs/swagger';
 import { IStudent } from '../types/student.interface';
-import { StudentPerformance } from '../types/student-perform.enum';
+import { CreateStudentDto } from './create-student.dto';
 
-export class UpdateStudentDto implements IStudent {
+export class UpdateStudentDto extends CreateStudentDto implements IStudent {
+  @ApiProperty()
   id: number;
-  lastName: string;
-  firstname: string;
-  patronymic?: string;
-  birthDate: Date;
-  performance?: StudentPerformance;
 }
