@@ -1,5 +1,6 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { config } from 'dotenv';
+import { StudentEntity } from 'src/students/entity/student.entity';
 config();
 
 const { env } = process;
@@ -11,6 +12,6 @@ export const dbConfig: TypeOrmModuleOptions = {
   username: env.TYPEORM_USERNAME,
   password: env.TYPEORM_PASSWORD,
   database: env.TYPEORM_DATABASE,
-  entities: [],
+  entities: [StudentEntity],
   synchronize: true,
 };
