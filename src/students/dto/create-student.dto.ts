@@ -6,10 +6,10 @@ import {
   IsEnum,
   IsOptional,
 } from 'class-validator';
-import { IStudent } from '../types/student.interface';
 import { StudentPerformance } from '../types/student-perform.enum';
+import { ICreateStudentDto } from '../types/create-student-dto.interface';
 
-export class CreateStudentDto implements Omit<IStudent, 'id'> {
+export class CreateStudentDto implements ICreateStudentDto {
   @ApiProperty()
   @IsString()
   @IsNotEmpty()
