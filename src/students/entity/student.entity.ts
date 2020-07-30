@@ -1,4 +1,10 @@
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  BaseEntity,
+  Column,
+  Entity,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+} from 'typeorm';
 import { IStudent } from '../types/student.interface';
 import { StudentPerformance } from '../types/student-perform.enum';
 
@@ -21,4 +27,7 @@ export class StudentEntity extends BaseEntity implements IStudent {
 
   @Column({ nullable: true, type: 'enum', enum: StudentPerformance })
   performance?: StudentPerformance;
+
+  @CreateDateColumn()
+  createdAt: Date;
 }

@@ -14,7 +14,7 @@ export class StudentsService {
   ) {}
 
   async getStudents(): Promise<IStudent[]> {
-    return this._studentRepository.find();
+    return this._studentRepository.find({ order: { createdAt: 'DESC' } });
   }
 
   async getStudentById(id: number): Promise<StudentEntity> | never {
